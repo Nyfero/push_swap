@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/18 14:18:17 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/18 15:43:36 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ typedef struct s_pushswap
 }	t_swap;
 
 int		main(int argc, char **argv);
-
-int		ft_lstrlen(char **ls);
 
 void	ft_error(void);
 
@@ -53,5 +51,12 @@ t_swap	ft_rra(t_swap tab);
 t_swap	ft_rrb(t_swap tab);
 t_swap	ft_rrr(t_swap tab);
 char	**ft_rotate_right(char **ls);
+
+int	ft_check_sort(char **ls);
+int	ft_check_revert_sort(char **ls);
+int	ft_find_smaller(char **ls);
+int	ft_find_bigger(char **ls);
+
+t_swap	ft_magic_sort(t_swap tab);
 
 #endif

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsap <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 08:41:32 by gsap              #+#    #+#             */
-/*   Updated: 2021/05/24 10:26:30 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/17 15:27:57 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	long_value(int j, unsigned long long int res)
+long int	long_value(int j, unsigned long long int res)
 {
 	if (res > 9223372036854775807)
 	{
@@ -25,7 +25,7 @@ int	long_value(int j, unsigned long long int res)
 		return (res * j);
 }
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
 	int						j;
 	unsigned long long int	res;
