@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/17 14:20:05 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/18 14:23:55 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_swap	tab;
+	int		i;
 
 	if (argc == 1)
 		return (0);
@@ -24,10 +25,11 @@ int	main(int argc, char **argv)
 		tab = ft_init_arg(tab, argv);
 	else
 		tab = ft_init(tab, argc, argv);
-	int i = 0;
+	i = 0;
 	while (tab.a[i])
-		printf("%s\n", tab.a[i++]);
-	printf("%s\n", tab.b[0]);
-	write(1, "|1\n", 3);
+		printf("tab.a :%s\n", tab.a[i++]);
+	i = 0;
+	while (tab.b[i])
+		printf("tab.b :%s\n", tab.b[i++]);
 	return (0);
 }
