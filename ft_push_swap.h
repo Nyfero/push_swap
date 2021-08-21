@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/18 15:43:36 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/19 17:09:10 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,15 @@ t_swap	ft_rrb(t_swap tab);
 t_swap	ft_rrr(t_swap tab);
 char	**ft_rotate_right(char **ls);
 
-int	ft_check_sort(char **ls);
-int	ft_check_revert_sort(char **ls);
-int	ft_find_smaller(char **ls);
-int	ft_find_bigger(char **ls);
+int		ft_check_sort(char **ls);
+int		ft_check_revert_sort(char **ls);
+int		ft_find_smaller(char **ls);
+int		ft_find_bigger(char **ls);
 
-t_swap	ft_magic_sort(t_swap tab);
+t_swap	ft_sort_3(t_swap tab);
+t_swap	ft_sort_5(t_swap tab);
+
+t_swap	ft_sort(t_swap tab);
+t_swap	ft_classic_sort(t_swap tab);
 
 #endif

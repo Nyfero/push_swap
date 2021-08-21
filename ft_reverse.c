@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/18 14:18:28 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/19 17:33:07 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_swap	ft_rra(t_swap tab)
 	tab.a = ft_rotate_right(tab.a);
 	if (!tab.a)
 		ft_error();
+	write(1, "rra\n", 4);
 	return (tab);
 }
 
@@ -33,13 +34,33 @@ t_swap	ft_rrb(t_swap tab)
 	tab.b = ft_rotate_right(tab.b);
 	if (!tab.b)
 		ft_error();
+	write(1, "rrb\n", 4);
 	return (tab);
 }
 
 t_swap	ft_rrr(t_swap tab)
 {
-	tab = ft_ra(tab);
-	tab = ft_rb(tab);
+	if (ft_lstrlen(tab.a) <= 1 || ft_lstrlen(tab.b) <= 1)
+		return (tab);
+	if (ft_lstrlen(tab.a) == 2 && ft_lstrlen(tab.b) == 2)
+		return (ft_ss(tab));
+	if (ft_lstrlen(tab.a) == 2)
+		tab = ft_sa(tab);
+	else
+	{
+		tab.a = ft_rotate_right(tab.a);
+		if (!tab.a)
+			ft_error();
+	}
+	if (ft_lstrlen(tab.b) == 2)
+		tab = ft_sb(tab);
+	else
+	{
+		tab.b = ft_rotate_right(tab.b);
+		if (!tab.b)
+			ft_error();
+	}
+	write(1, "rrr\n", 4);
 	return (tab);
 }
 

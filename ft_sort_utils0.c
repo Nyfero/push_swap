@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/18 15:49:44 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/19 14:06:46 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 int	ft_check_sort(char **ls)
 {
 	int	i;
+	int	j;
 	int	min;
 
-	i = 1;
-	min = ft_atoi(ls[0]);
+	i = 0;
 	while (ls[i])
 	{
-		if (min > ft_atoi(ls[i]))
-			return (0);
+		min = ft_atoi(ls[i]);
+		j = i + 1;
+		while (ls[j])
+		{
+			if (min > ft_atoi(ls[j]))
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (1);
@@ -85,9 +91,3 @@ int	ft_find_bigger(char **ls)
 	}
 	return (compt);
 }
-/*
-t_swap	ft_sort_3(t_swap tab)
-{
-
-}
-*/

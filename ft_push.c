@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/18 14:19:55 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/19 13:19:23 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_swap	ft_pa(t_swap tab)
 		if (!tab.b)
 			ft_error();
 	}
+	write(1, "pa\n", 3);
 	return (tab);
 }
 
@@ -45,6 +46,7 @@ t_swap	ft_pb(t_swap tab)
 		if (!tab.a)
 			ft_error();
 	}
+	write(1, "pb\n", 3);
 	return (tab);
 }
 
