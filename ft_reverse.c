@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/19 17:33:07 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/21 16:28:00 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_swap	ft_rra(t_swap tab)
 		return (ft_sa(tab));
 	tab.a = ft_rotate_right(tab.a);
 	if (!tab.a)
-		ft_error();
+		ft_error_free(tab);
 	write(1, "rra\n", 4);
 	return (tab);
 }
@@ -33,7 +33,7 @@ t_swap	ft_rrb(t_swap tab)
 		return (ft_sb(tab));
 	tab.b = ft_rotate_right(tab.b);
 	if (!tab.b)
-		ft_error();
+		ft_error_free(tab);
 	write(1, "rrb\n", 4);
 	return (tab);
 }
@@ -50,7 +50,7 @@ t_swap	ft_rrr(t_swap tab)
 	{
 		tab.a = ft_rotate_right(tab.a);
 		if (!tab.a)
-			ft_error();
+			ft_error_free(tab);
 	}
 	if (ft_lstrlen(tab.b) == 2)
 		tab = ft_sb(tab);
@@ -58,7 +58,7 @@ t_swap	ft_rrr(t_swap tab)
 	{
 		tab.b = ft_rotate_right(tab.b);
 		if (!tab.b)
-			ft_error();
+			ft_error_free(tab);
 	}
 	write(1, "rrr\n", 4);
 	return (tab);
@@ -73,14 +73,14 @@ char	**ft_rotate_right(char **ls)
 	i = ft_lstrlen(ls);
 	dup = (char **)malloc(sizeof(char *) * (i + 1));
 	if (!dup)
-		ft_error();
+		return (NULL);
 	dup[i--] = 0;
 	tmp = ls[i];
 	while (i > 0)
 	{
 		dup[i] = ft_strdup(ls[i - 1]);
 		if (!dup[i])
-			ft_error();
+			return (NULL);
 		i--;
 	}
 	dup[i--] = ft_strdup(tmp);

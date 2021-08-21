@@ -6,12 +6,12 @@
 #    By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 14:07:19 by gsap              #+#    #+#              #
-#    Updated: 2021/08/18 14:30:57 by gsap             ###   ########.fr        #
+#    Updated: 2021/08/21 17:47:17 by gsap             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME 	= libft.a
+NAME	= libft.a
 
 SRCS	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		  ft_memchr.c ft_memcmp.c ft_strlen.c  ft_lstrlen.c ft_isalpha.c \
@@ -26,29 +26,27 @@ SRCS	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		  ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
 		  ft_lstiter.c ft_lstmap.c
 
-OBJS 	= $(SRCS:.c=.o)
+OBJS	= $(SRCS:.c=.o)
 
-CC 		= gcc
+CC	= gcc
 
-AR		= ar rc
+AR	= ar rc
 
-RM		= rm -f
+RM	= rm -f
 
 CFLAGS	= -Wall -Wextra -Werror
 
+all:	$(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@ echo "$(NAME) created"
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
-$(NAME): 	$(OBJS)
-			$(AR) $(NAME) $(OBJS)
-
-all:		$(NAME)
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
-			$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
-fclean: 	clean
-			$(RM) $(NAME)
+fclean:	clean
+	$(RM) $(NAME)
 
 re: 		fclean all
 
