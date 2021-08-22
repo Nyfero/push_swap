@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/19 17:09:10 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/22 13:18:26 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ typedef struct s_pushswap
 int		main(int argc, char **argv);
 
 void	ft_error(void);
+void	ft_error_free(t_swap tab);
 
 t_swap	ft_init_arg(t_swap tab, char **argv);
 t_swap	ft_init(t_swap tab, int argc, char **argv);
-void	ft_check(char **ls);
+void	ft_check(t_swap tab);
 
 t_swap	ft_sa(t_swap tab);
 t_swap	ft_sb(t_swap tab);
@@ -57,10 +58,20 @@ int		ft_check_revert_sort(char **ls);
 int		ft_find_smaller(char **ls);
 int		ft_find_bigger(char **ls);
 
-t_swap	ft_sort_3(t_swap tab);
-t_swap	ft_sort_5(t_swap tab);
+t_swap	ft_sort_3_a(t_swap tab);
+t_swap	ft_sort_5_a(t_swap tab);
+t_swap	ft_revert_sort_3_b(t_swap tab);
+t_swap	ft_revert_sort_5_b(t_swap tab);
 
 t_swap	ft_sort(t_swap tab);
-t_swap	ft_classic_sort(t_swap tab);
+t_swap	ft_classic_sort_a(t_swap tab);
+t_swap	ft_classic_sort_b(t_swap tab);
+
+t_swap	ft_fusion_sort(t_swap tab, int len);
+
+//t_swap	ft_comb_sort(t_swap tab);
+//t_swap	ft_fastest_comb(t_swap tab, int i, int len_comb);
+
+//t_swap	ft_quick_sort(t_swap tab, int taille);
 
 #endif

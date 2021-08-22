@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/21 16:42:54 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/22 13:27:53 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,20 @@ int	ft_check_sort(char **ls)
 int	ft_check_revert_sort(char **ls)
 {
 	int	i;
+	int	j;
 	int	max;
 
-	i = 1;
-	max = ft_atoi(ls[0]);
+	i = 0;
 	while (ls[i])
 	{
-		if (max < ft_atoi(ls[i]))
-			return (0);
+		max = ft_atoi(ls[i]);
+		j = i + 1;
+		while (ls[j])
+		{
+			if (max < ft_atoi(ls[j]))
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (1);
