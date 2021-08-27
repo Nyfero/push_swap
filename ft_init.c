@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/21 16:33:06 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/23 13:11:56 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,24 @@ void	ft_check(t_swap tab)
 		i++;
 	}
 	return ;
+}
+
+char	**ft_duplicate(char **ls)
+{
+	char	**dup;
+	int		i;
+
+	dup = (char **)malloc(sizeof(char *) * (ft_lstrlen(ls) + 1));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (ls[i])
+	{
+		dup[i] = ft_strdup(ls[i]);
+		if (!dup[i])
+			return (NULL);
+		i++;
+	}
+	dup[i] = 0;
+	return (dup);
 }

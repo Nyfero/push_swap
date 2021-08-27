@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/21 16:28:00 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/27 17:41:01 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ char	**ft_rotate_right(char **ls)
 		i--;
 	}
 	dup[i--] = ft_strdup(tmp);
-	free(ls);
+	ft_free_ls(ls);
 	return (dup);
 }
