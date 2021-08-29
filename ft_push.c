@@ -6,48 +6,48 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/27 17:38:29 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:12:29 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_swap	ft_pa(t_swap tab)
+t_swap	ft_pa(t_swap stack)
 {
-	if (!tab.b)
-		return (tab);
-	tab.a = ft_push_right(tab.a, tab.b[0]);
-	if (!tab.a)
-		ft_error_free(tab);
-	if (!tab.b)
-		tab.b[0] = 0;
+	if (!stack.b)
+		return (stack);
+	stack.a = ft_push_right(stack.a, stack.b[0]);
+	if (!stack.a)
+		ft_error_free(stack);
+	if (!stack.b)
+		stack.b[0] = 0;
 	else
 	{
-		tab.b = ft_push_left(tab.b);
-		if (!tab.b)
-			ft_error_free(tab);
+		stack.b = ft_push_left(stack.b);
+		if (!stack.b)
+			ft_error_free(stack);
 	}
 	write(1, "pa\n", 3);
-	return (tab);
+	return (stack);
 }
 
-t_swap	ft_pb(t_swap tab)
+t_swap	ft_pb(t_swap stack)
 {
-	if (!tab.a)
-		return (tab);
-	tab.b = ft_push_right(tab.b, tab.a[0]);
-	if (!tab.b)
-		ft_error_free(tab);
-	if (!tab.a)
-		tab.a[0] = 0;
+	if (!stack.a)
+		return (stack);
+	stack.b = ft_push_right(stack.b, stack.a[0]);
+	if (!stack.b)
+		ft_error_free(stack);
+	if (!stack.a)
+		stack.a[0] = 0;
 	else
 	{
-		tab.a = ft_push_left(tab.a);
-		if (!tab.a)
-			ft_error_free(tab);
+		stack.a = ft_push_left(stack.a);
+		if (!stack.a)
+			ft_error_free(stack);
 	}
 	write(1, "pb\n", 3);
-	return (tab);
+	return (stack);
 }
 
 char	**ft_push_left(char **ls)

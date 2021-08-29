@@ -6,67 +6,67 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/23 13:11:56 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:16:36 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_swap	ft_init_arg(t_swap tab, char **argv)
+t_swap	ft_init_arg(t_swap stack, char **argv)
 {
-	tab.a = ft_split(argv[1], ' ');
-	if (!tab.a)
+	stack.a = ft_split(argv[1], ' ');
+	if (!stack.a)
 		ft_error();
-	tab.b = (char **)malloc(sizeof(char) * 1);
-	tab.b[0] = 0;
-	ft_check(tab);
-	return (tab);
+	stack.b = (char **)malloc(sizeof(char) * 1);
+	stack.b[0] = 0;
+	ft_check_arg(stack);
+	return (stack);
 }
 
-t_swap	ft_init(t_swap tab, int argc, char **argv)
+t_swap	ft_init(t_swap stack, int argc, char **argv)
 {
 	int	i;
 
-	tab.a = (char **)malloc(sizeof(char *) * argc);
-	if (!tab.a)
+	stack.a = (char **)malloc(sizeof(char *) * argc);
+	if (!stack.a)
 		ft_error();
 	i = 0;
 	while (i < argc - 1)
 	{
-		tab.a[i] = ft_strdup(argv[i + 1]);
-		if (!tab.a[i])
-			ft_error_free(tab);
+		stack.a[i] = ft_strdup(argv[i + 1]);
+		if (!stack.a[i])
+			ft_error_free(stack);
 		i++;
 	}
-	tab.a[i] = 0;
-	tab.b = (char **)malloc(sizeof(char *) * 1);
-	tab.b[0] = 0;
-	ft_check(tab);
-	return (tab);
+	stack.a[i] = 0;
+	stack.b = (char **)malloc(sizeof(char *) * 1);
+	stack.b[0] = 0;
+	ft_check(stack);
+	return (stack);
 }
 
-void	ft_check(t_swap tab)
+void	ft_check_arg(t_swap stack)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (tab.a[i])
+	while (stack.a[i])
 	{
-		if (ft_atoi(tab.a[i]) > 2147483647 || ft_atoi(tab.a[i]) < -2147483648)
-			ft_error_free(tab);
+		if (ft_atoi(stack.a[i]) > 2147483647 || ft_atoi(stack.a[i]) < -2147483648)
+			ft_error_free(stack);
 		j = 0;
-		while (tab.a[i][j])
+		while (stack.a[i][j])
 		{
-			if (ft_isalpha(tab.a[i][j]))
-				ft_error_free(tab);
+			if (ft_isalpha(stack.a[i][j]))
+				ft_error_free(stack);
 			j++;
 		}
 		j = i + 1;
-		while (tab.a[j])
+		while (stack.a[j])
 		{
-			if (ft_atoi(tab.a[i]) == ft_atoi(tab.a[j]))
-				ft_error_free(tab);
+			if (ft_atoi(stack.a[i]) == ft_atoi(stack.a[j]))
+				ft_error_free(stack);
 			j++;
 		}
 		i++;
@@ -74,7 +74,7 @@ void	ft_check(t_swap tab)
 	return ;
 }
 
-char	**ft_duplicate(char **ls)
+char	**ft_duplicate_ls(char **ls)
 {
 	char	**dup;
 	int		i;

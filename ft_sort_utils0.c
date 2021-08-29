@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/27 12:44:05 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:23:57 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,28 +76,28 @@ int	ft_find_bigger(char **ls)
 	return (compt);
 }
 
-t_swap	ft_short_way_a(t_swap tab, int i)
+t_swap	ft_less_cost(t_swap stack, int i)
 {
-	if (ft_lstrlen(tab.a) - i > i)
+	if (ft_lstrlen(stack.a) - i > i)
 	{
 		while (i > 0)
 		{
-			tab = ft_ra(tab);
+			stack = ft_ra(stack);
 			i--;
 		}
 	}
 	else
 	{
-		while (i < ft_lstrlen(tab.a))
+		while (i < ft_lstrlen(stack.a))
 		{
-			tab = ft_rra(tab);
+			stack = ft_rra(stack);
 			i++;
 		}
 	}
-	return (tab);
+	return (stack);
 }
 
-size_t	ft_lenght(int nb)
+size_t	ft_lenght_int(int nb)
 {
 	int		c;
 	size_t	compt;

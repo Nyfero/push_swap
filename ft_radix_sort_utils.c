@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/27 17:40:33 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:50:08 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_dec_to_bin_sized(int n, int size)
 	return (bin);
 }
 
-char	**ft_tab_index(t_swap tab, char **ls)
+char	**ft_stack_index(t_swap stack, char **ls)
 {
 	char	**dup;
 	int		i;
@@ -67,7 +67,7 @@ char	**ft_tab_index(t_swap tab, char **ls)
 	i = 0;
 	while (ls[i])
 	{
-		dup[i] = ft_dec_to_bin_sized(ft_index(tab.a[i], ls), tmp);
+		dup[i] = ft_dec_to_bin_sized(ft_index(stack.a[i], ls), tmp);
 		if (!dup[i])
 			return (NULL);
 		i++;
@@ -97,30 +97,21 @@ int	ft_find_size(char **ls)
 	return (-1);
 }
 
-char	**ft_move_up(char **ls, int i)
+char	**ft_move_up(char **ls, int j)
 {
-	char	**dup;
-	int		j;
+	int			i;
+	static int	zero = 0;
+	char		*tmp;
 
-	dup = (char **)malloc(sizeof(char *) * ft_lstrlen(ls));
-	if (!dup)
-		return (NULL);
-	j = 0;
-	while (j < i)
+	i = 0;
+	while (ls[i])
 	{
-		dup[j] = ft_strdup(ls[j]);
-		if (!dup[j])
-			return (NULL);
-		j++;
+		if (ls[i][j] == '0')
+		{
+			tmp = ls[zero];
+			ls[zero] = ls[i][j];
+
+		}
 	}
-	while (ls[i + 1])
-	{
-		dup[i] = ft_strdup(ls[i + 1]);
-		if (!dup[i])
-			return (NULL);
-		i++;
-	}
-	ft_free_ls(ls);
-	dup[i] = 0;
-	return (dup);
+	return (ls);
 }

@@ -6,62 +6,62 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/27 17:41:19 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:12:41 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_swap	ft_ra(t_swap tab)
+t_swap	ft_ra(t_swap stack)
 {
-	if (ft_lstrlen(tab.a) <= 1)
-		return (tab);
-	if (ft_lstrlen(tab.a) == 2)
-		return (ft_sa(tab));
-	tab.a = ft_rotate_left(tab.a);
-	if (!tab.a)
-		ft_error_free(tab);
+	if (ft_lstrlen(stack.a) <= 1)
+		return (stack);
+	if (ft_lstrlen(stack.a) == 2)
+		return (ft_sa(stack));
+	stack.a = ft_rotate_left(stack.a);
+	if (!stack.a)
+		ft_error_free(stack);
 	write(1, "ra\n", 3);
-	return (tab);
+	return (stack);
 }
 
-t_swap	ft_rb(t_swap tab)
+t_swap	ft_rb(t_swap stack)
 {
-	if (ft_lstrlen(tab.b) <= 1)
-		return (tab);
-	if (ft_lstrlen(tab.b) == 2)
-		return (ft_sb(tab));
-	tab.b = ft_rotate_left(tab.b);
-	if (!tab.b)
-		ft_error_free(tab);
+	if (ft_lstrlen(stack.b) <= 1)
+		return (stack);
+	if (ft_lstrlen(stack.b) == 2)
+		return (ft_sb(stack));
+	stack.b = ft_rotate_left(stack.b);
+	if (!stack.b)
+		ft_error_free(stack);
 	write(1, "rb\n", 3);
-	return (tab);
+	return (stack);
 }
 
-t_swap	ft_rr(t_swap tab)
+t_swap	ft_rr(t_swap stack)
 {
-	if (ft_lstrlen(tab.a) <= 1 || ft_lstrlen(tab.b) <= 1)
-		return (tab);
-	if (ft_lstrlen(tab.a) == 2 && ft_lstrlen(tab.b) == 2)
-		return (ft_ss(tab));
-	if (ft_lstrlen(tab.a) == 2)
-		tab = ft_sa(tab);
+	if (ft_lstrlen(stack.a) <= 1 || ft_lstrlen(stack.b) <= 1)
+		return (stack);
+	if (ft_lstrlen(stack.a) == 2 && ft_lstrlen(stack.b) == 2)
+		return (ft_ss(stack));
+	if (ft_lstrlen(stack.a) == 2)
+		stack = ft_sa(stack);
 	else
 	{
-		tab.a = ft_rotate_left(tab.a);
-		if (!tab.a)
-			ft_error_free(tab);
+		stack.a = ft_rotate_left(stack.a);
+		if (!stack.a)
+			ft_error_free(stack);
 	}
-	if (ft_lstrlen(tab.b) == 2)
-		tab = ft_sb(tab);
+	if (ft_lstrlen(stack.b) == 2)
+		stack = ft_sb(stack);
 	else
 	{
-		tab.b = ft_rotate_left(tab.b);
-		if (!tab.b)
-			ft_error_free(tab);
+		stack.b = ft_rotate_left(stack.b);
+		if (!stack.b)
+			ft_error_free(stack);
 	}
 	write(1, "rr\n", 3);
-	return (tab);
+	return (stack);
 }
 
 char	**ft_rotate_left(char **ls)

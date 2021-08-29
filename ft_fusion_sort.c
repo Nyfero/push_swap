@@ -6,56 +6,56 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/27 17:37:25 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:12:49 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_swap	ft_fusion_sort(t_swap tab, char **ls)
+t_swap	ft_fusion_sort(t_swap stack, char **ls)
 {
 	int	i;
 
-	while (ft_lstrlen(tab.a) > 5)
+	while (ft_lstrlen(stack.a) > 5)
 	{
-		while (ft_find_smaller(tab.a) == 0 || ft_find_bigger(tab.a) == 0)
-			tab = ft_ra(tab);
-		tab = ft_pb(tab);
+		while (ft_find_smaller(stack.a) == 0 || ft_find_bigger(stack.a) == 0)
+			stack = ft_ra(stack);
+		stack = ft_pb(stack);
 	}
-	tab = ft_sort_5_a(tab);
-	while (ft_lstrlen(tab.b) > 0)
-		tab = ft_random_index(tab, ls);
-	i = ft_find_smaller(tab.a);
-	tab = ft_short_way_a(tab, i);
-	return (tab);
+	stack = ft_sort_5_a(stack);
+	while (ft_lstrlen(stack.b) > 0)
+		stack = ft_random_index(stack, ls);
+	i = ft_find_smaller(stack.a);
+	stack = ft_short_way_a(stack, i);
+	return (stack);
 }
 
-t_swap	ft_random_index(t_swap tab, char **ls)
+t_swap	ft_random_index(t_swap stack, char **ls)
 {
 	int	i;
 	int	pivot;
 	int	tmp;
 
 	i = 0;
-	tmp = ft_index(tab.b[0], ls);
-	if (tmp < ft_index(tab.a[0], ls))
-		while (tmp < ft_index(tab.a[i], ls))
+	tmp = ft_index(stack.b[0], ls);
+	if (tmp < ft_index(stack.a[0], ls))
+		while (tmp < ft_index(stack.a[i], ls))
 			i++;
-	while (tmp > ft_index(tab.a[i % ft_lstrlen(tab.a)], ls))
+	while (tmp > ft_index(stack.a[i % ft_lstrlen(stack.a)], ls))
 		i++;
-	i = (i % ft_lstrlen(tab.a));
-	pivot = ft_index(tab.a[i], ls);
-	tab = ft_short_way_a(tab, i);
-	if (ft_lstrlen(tab.b) > 1)
+	i = (i % ft_lstrlen(stack.a));
+	pivot = ft_index(stack.a[i], ls);
+	stack = ft_short_way_a(stack, i);
+	if (ft_lstrlen(stack.b) > 1)
 	{
-		while (tmp < ft_index(tab.b[1], ls) && ft_index(tab.b[1], ls) < pivot)
+		while (tmp < ft_index(stack.b[1], ls) && ft_index(stack.b[1], ls) < pivot)
 		{
-			tab = ft_sb(tab);
-			tab = ft_pa(tab);
+			stack = ft_sb(stack);
+			stack = ft_pa(stack);
 		}
 	}
-	tab = ft_pa(tab);
-	return (tab);
+	stack = ft_pa(stack);
+	return (stack);
 }
 
 int	ft_index(char *s, char **ls)

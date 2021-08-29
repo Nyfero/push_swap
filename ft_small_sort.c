@@ -6,49 +6,49 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/27 15:57:26 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:13:06 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_swap	ft_sort_3_a(t_swap tab)
+t_swap	ft_sort_3_a(t_swap stack)
 {
-	while (ft_check_sort(tab.a) == 0)
+	while (ft_check_sort(stack.a) == 0)
 	{
-		if (ft_find_bigger(tab.a) == 0)
-			tab = ft_ra(tab);
-		else if (ft_find_bigger(tab.a) == 2)
-			tab = ft_sa(tab);
-		else if (ft_find_bigger(tab.a) == 1)
-			tab = ft_rra(tab);
+		if (ft_find_bigger(stack.a) == 0)
+			stack = ft_ra(stack);
+		else if (ft_find_bigger(stack.a) == 2)
+			stack = ft_sa(stack);
+		else if (ft_find_bigger(stack.a) == 1)
+			stack = ft_rra(stack);
 	}
-	return (tab);
+	return (stack);
 }
 
-t_swap	ft_sort_5_a(t_swap tab)
+t_swap	ft_sort_5_a(t_swap stack)
 {
-	while (ft_check_sort(tab.a) == 0)
+	while (ft_check_sort(stack.a) == 0)
 	{
-		while (ft_lstrlen(tab.a) > 3)
+		while (ft_lstrlen(stack.a) > 3)
 		{
-			if (ft_find_smaller(tab.a) == 0)
-				tab = ft_pb(tab);
-			else if (ft_find_smaller(tab.a) == 1)
-				tab = ft_sa(tab);
-			else if (ft_lstrlen(tab.a) - ft_find_smaller(tab.a)
-				>= ft_find_smaller(tab.a))
-				tab = ft_ra(tab);
+			if (ft_find_smaller(stack.a) == 0)
+				stack = ft_pb(stack);
+			else if (ft_find_smaller(stack.a) == 1)
+				stack = ft_sa(stack);
+			else if (ft_lstrlen(stack.a) - ft_find_smaller(stack.a)
+				>= ft_find_smaller(stack.a))
+				stack = ft_ra(stack);
 			else
-				tab = ft_rra(tab);
+				stack = ft_rra(stack);
 		}
-		if (ft_check_sort(tab.a) == 0)
-			tab = ft_sort_3_a(tab);
-		if (ft_lstrlen(tab.b) > 1)
+		if (ft_check_sort(stack.a) == 0)
+			stack = ft_sort_3_a(stack);
+		if (ft_lstrlen(stack.b) > 1)
 		{
-			tab = ft_pa(tab);
-			tab = ft_pa(tab);
+			stack = ft_pa(stack);
+			stack = ft_pa(stack);
 		}
 	}
-	return (tab);
+	return (stack);
 }

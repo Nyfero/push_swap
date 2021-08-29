@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/27 17:33:07 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:25:41 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,31 @@
 
 int	main(int argc, char **argv)
 {
-	t_swap	tab;
+	t_swap	stack;
 
 	if (argc == 1)
 		return (0);
-	tab.a = NULL;
-	tab.b = NULL;
+	stack.a = NULL;
+	stack.b = NULL;
+	if (ft_check_sort(argv) == 1)
+		return (0);
 	if (argc == 2)
-		tab = ft_init_arg(tab, argv);
+		stack = ft_init_arg(stack, argv);
 	else
-		tab = ft_init(tab, argc, argv);
-	if (ft_check_sort(tab.a) == 1)
+		stack = ft_init(stack, argc, argv);
+	stack = ft_sort_stack(stack);
+	if (ft_check_sort(stack.a) == 1)
 	{
-		ft_free_ls(tab.a);
-		ft_free_ls(tab.b);
-		return (0);
-	}
-	tab = ft_sort(tab);
-	if (ft_check_sort(tab.a) == 1)
-	{
-		ft_free_ls(tab.a);
-		ft_free_ls(tab.b);
+		write(1, "oui\n", 4);
+		ft_free_ls(stack.a);
+		ft_free_ls(stack.b);
 		return (0);
 	}
 	else
 	{
-		ft_free_ls(tab.a);
-		ft_free_ls(tab.b);
+		write(1, "non\n", 4);
+		ft_free_ls(stack.a);
+		ft_free_ls(stack.b);
 		return (1);
 	}
 }

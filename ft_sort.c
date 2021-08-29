@@ -6,46 +6,45 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/27 17:41:49 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/29 17:25:51 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_swap	ft_sort(t_swap tab)
+t_swap	ft_sort_stack(t_swap stack)
 {
 	char	**tmp;
 
-	tmp = ft_duplicate(tab.a);
+	tmp = ft_duplicate(stack.a);
 	if (!tmp)
-		ft_error_free(tab);
+		ft_error_free(stack);
 	tmp = ft_free_sort(tmp);
-	if (ft_lstrlen(tab.a) < 60)
-		tab = ft_classic_sort_a(tab);
+	if (ft_lstrlen(stack.a) < 60)
+		stack = ft_basic_sort_a(stack);
 	else
-		tab = ft_radix_sort(tab, tmp);
-	ft_free_ls(tmp);
-	return (tab);
+		stack = ft_radix_sort(stack, tmp);
+	return (stack);
 }
 
-t_swap	ft_classic_sort_a(t_swap tab)
+t_swap	ft_basic_sort_a(t_swap stack)
 {
-	while (ft_lstrlen(tab.a) > 5)
+	while (ft_lstrlen(stack.a) > 5)
 	{
-		if (ft_find_smaller(tab.a) == 0)
-			tab = ft_pb(tab);
-		else if (ft_find_smaller(tab.a) == 1)
-			tab = ft_sa(tab);
-		else if (ft_lstrlen(tab.a) - ft_find_smaller(tab.a)
-			>= ft_find_smaller(tab.a))
-			tab = ft_ra(tab);
+		if (ft_find_smaller(stack.a) == 0)
+			stack = ft_pb(stack);
+		else if (ft_find_smaller(stack.a) == 1)
+			stack = ft_sa(stack);
+		else if (ft_lstrlen(stack.a) - ft_find_smaller(stack.a)
+			>= ft_find_smaller(stack.a))
+			stack = ft_ra(stack);
 		else
-			tab = ft_rra(tab);
+			stack = ft_rra(stack);
 	}
-	tab = ft_sort_5_a(tab);
-	while (ft_lstrlen(tab.b) > 0)
-		tab = ft_pa(tab);
-	return (tab);
+	stack = ft_sort_5_a(stack);
+	while (ft_lstrlen(stack.b) > 0)
+		stack = ft_pa(stack);
+	return (stack);
 }
 
 char	**ft_free_sort(char **ls)
