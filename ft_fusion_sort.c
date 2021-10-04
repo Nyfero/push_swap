@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/29 17:12:49 by gsap             ###   ########.fr       */
+/*   Updated: 2021/09/01 14:49:43 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_swap	ft_fusion_sort(t_swap stack, char **ls)
 	while (ft_lstrlen(stack.b) > 0)
 		stack = ft_random_index(stack, ls);
 	i = ft_find_smaller(stack.a);
-	stack = ft_short_way_a(stack, i);
+	stack = ft_less_cost(stack, i);
 	return (stack);
 }
 
@@ -45,10 +45,11 @@ t_swap	ft_random_index(t_swap stack, char **ls)
 		i++;
 	i = (i % ft_lstrlen(stack.a));
 	pivot = ft_index(stack.a[i], ls);
-	stack = ft_short_way_a(stack, i);
+	stack = ft_less_cost(stack, i);
 	if (ft_lstrlen(stack.b) > 1)
 	{
-		while (tmp < ft_index(stack.b[1], ls) && ft_index(stack.b[1], ls) < pivot)
+		while (tmp < ft_index(stack.b[1], ls)
+			&& ft_index(stack.b[1], ls) < pivot)
 		{
 			stack = ft_sb(stack);
 			stack = ft_pa(stack);

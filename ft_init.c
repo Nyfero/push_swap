@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/29 17:16:36 by gsap             ###   ########.fr       */
+/*   Updated: 2021/10/03 13:52:50 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,48 @@ t_swap	ft_init_arg(t_swap stack, char **argv)
 
 t_swap	ft_init(t_swap stack, int argc, char **argv)
 {
-	int	i;
+	int		i;
+	int		j;
+	int		h;
+	char	**tmp;
 
-	stack.a = (char **)malloc(sizeof(char *) * argc);
+	stack.a = (char **)malloc(sizeof(char *) * ft_nbr_arg(argc, argv));
 	if (!stack.a)
 		ft_error();
-	i = 0;
-	while (i < argc - 1)
+	i = -1;
+	h = 0;
+	while (++i < argc - 1)
 	{
-		stack.a[i] = ft_strdup(argv[i + 1]);
-		if (!stack.a[i])
-			ft_error_free(stack);
-		i++;
+		tmp = ft_split(argv[i + 1], ' ');
+		j = -1;
+		while (tmp[++j])
+			stack.a[h++] = ft_strdup(tmp[j]);
+		ft_free_ls(tmp);
 	}
-	stack.a[i] = 0;
+	stack.a[h] = 0;
 	stack.b = (char **)malloc(sizeof(char *) * 1);
 	stack.b[0] = 0;
-	ft_check(stack);
+	ft_check_arg(stack);
 	return (stack);
+}
+
+int	ft_nbr_arg(int argc, char **argv)
+{
+	int	i;
+	int	j;
+	int	compt;
+	
+	i = -1;
+	compt = 0;
+	while (++i < argc)
+	{
+		j = -1;
+		while (argv[i][++j])
+			if (argv[i][j] == ' ')
+				compt++;
+		compt++;
+	}
+	return (compt);
 }
 
 void	ft_check_arg(t_swap stack)
@@ -53,7 +77,8 @@ void	ft_check_arg(t_swap stack)
 	i = 0;
 	while (stack.a[i])
 	{
-		if (ft_atoi(stack.a[i]) > 2147483647 || ft_atoi(stack.a[i]) < -2147483648)
+		if (ft_atoi(stack.a[i]) > 2147483647
+			|| ft_atoi(stack.a[i]) < -2147483648)
 			ft_error_free(stack);
 		j = 0;
 		while (stack.a[i][j])
@@ -71,7 +96,6 @@ void	ft_check_arg(t_swap stack)
 		}
 		i++;
 	}
-	return ;
 }
 
 char	**ft_duplicate_ls(char **ls)

@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/29 17:25:51 by gsap             ###   ########.fr       */
+/*   Updated: 2021/10/03 16:51:17 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ t_swap	ft_sort_stack(t_swap stack)
 {
 	char	**tmp;
 
-	tmp = ft_duplicate(stack.a);
+	tmp = ft_duplicate_ls(stack.a);
 	if (!tmp)
 		ft_error_free(stack);
 	tmp = ft_free_sort(tmp);
-	if (ft_lstrlen(stack.a) < 60)
+	stack = ft_quick_sort(stack, tmp);
+	/*if (ft_lstrlen(stack.a) < 60)
 		stack = ft_basic_sort_a(stack);
 	else
-		stack = ft_radix_sort(stack, tmp);
+		stack = ft_radix_sort(stack, tmp);*/
+	ft_free_ls(tmp);
 	return (stack);
 }
 

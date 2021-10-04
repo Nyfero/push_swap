@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/29 17:50:08 by gsap             ###   ########.fr       */
+/*   Updated: 2021/08/31 10:10:20 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,19 +99,29 @@ int	ft_find_size(char **ls)
 
 char	**ft_move_up(char **ls, int j)
 {
-	int			i;
-	static int	zero = 0;
-	char		*tmp;
+	int		i;
+	int		k;
+	char	**tmp;
 
+	tmp = (char **)malloc(sizeof(char *) * (ft_lstrlen(ls) + 1));
+	if (!tmp)
+		return (NULL);
 	i = 0;
+	k = 0;
 	while (ls[i])
 	{
 		if (ls[i][j] == '0')
-		{
-			tmp = ls[zero];
-			ls[zero] = ls[i][j];
-
-		}
+			tmp[k++] = ft_strdup(ls[i]);
+		i++;
 	}
-	return (ls);
+	i = 0;
+	while (ls[i])
+	{
+		if (ls[i][j] != '0')
+			tmp[k++] = ft_strdup(ls[i]);
+		i++;
+	}
+	tmp[k] = 0;
+	ft_free_ls(ls);
+	return (tmp);
 }

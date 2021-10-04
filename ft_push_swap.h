@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/08/29 17:25:33 by gsap             ###   ########.fr       */
+/*   Updated: 2021/10/03 12:48:37 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_free_ls(char **ls);
 //	ft_init.c
 t_swap	ft_init_arg(t_swap stack, char **argv);
 t_swap	ft_init(t_swap stack, int argc, char **argv);
+int		ft_nbr_arg(int argc, char **argv);
 void	ft_check_arg(t_swap stack);
 char	**ft_duplicate_ls(char **ls);
 
@@ -82,18 +83,23 @@ t_swap	ft_sort_5_a(t_swap stack);
 t_swap	ft_radix_sort(t_swap stack, char **ls);
 t_swap	ft_radix(t_swap stack, char **index, int j, int i);
 int		ft_compt_zero(char **ls, int j);
-int		ft_find_zero(char **ls, int j);
+t_swap	ft_radix_base(t_swap stack, char **tmp, int j, int i);
+t_swap	ft_radix_opti(t_swap stack, char **tmp, int j, int k);
 
 //	ft_radix_sort_utils.c
 char	*ft_dec_to_bin(int n);
 char	*ft_dec_to_bin_sized(int n, int size);
 char	**ft_stack_index(t_swap stack, char **ls);
 int		ft_find_size(char **ls);
-char	**ft_move_up(char **ls, int i, int j, int k);
+char	**ft_move_up(char **ls, int j);
 
 //	ft_fusion_sort.c
 t_swap	ft_fusion_sort(t_swap stack, char **ls);
 t_swap	ft_random_index(t_swap stack, char **ls);
 int		ft_index(char *s, char **ls);
+
+//	ft_quick_sort.c
+t_swap	ft_quick_sort(t_swap stack, char **ls);
+char	**ft_create_dup_index(t_swap stack, char **ls);
 
 #endif
