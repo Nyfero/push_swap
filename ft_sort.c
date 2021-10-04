@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/10/03 16:51:17 by gsap             ###   ########.fr       */
+/*   Updated: 2021/10/04 17:37:50 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ t_swap	ft_sort_stack(t_swap stack)
 	if (!tmp)
 		ft_error_free(stack);
 	tmp = ft_free_sort(tmp);
-	stack = ft_quick_sort(stack, tmp);
+	tmp = ft_create_dup_index(stack, tmp);
+	stack = ft_find_following(tmp, stack);
 	/*if (ft_lstrlen(stack.a) < 60)
 		stack = ft_basic_sort_a(stack);
 	else

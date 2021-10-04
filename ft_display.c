@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/10/04 17:40:01 by gsap             ###   ########.fr       */
+/*   Updated: 2021/10/04 16:14:07 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_display_stack(t_swap stack)
 {
-	t_swap	stack;
-
-	if (argc == 1)
-		return (0);
-	stack.a = NULL;
-	stack.b = NULL;
-	if (argc == 2)
-		stack = ft_init_arg(stack, argv);
-	else
-		stack = ft_init(stack, argc, argv);
-	if (ft_check_sort(stack.a) == 1)
+	int	i;
+	int	size_a;
+	int	size_b;
+	
+	i = 0;
+	size_a = ft_lstrlen(stack.a);
+	size_b = ft_lstrlen(stack.b);
+	while (i < size_a || i < size_b)
 	{
-		ft_free_ls(stack.a);
-		ft_free_ls(stack.b);
-		return (0);
+		if (i < size_a && i < size_b)
+			printf("%d : %s    %s\n", i, stack.a[i], stack.b[i]);
+		else if (i < size_a && i >= size_b)
+			printf("%d : %s    |\n", i, stack.a[i]);
+		else if (i >= size_a && i < size_b)
+			printf("%d : |    %s\n", i, stack.b[i]);
+		i++;
 	}
-	stack = ft_sort_stack(stack);
-	ft_display_stack(stack);
-	ft_free_ls(stack.a);
-	ft_free_ls(stack.b);
-	return (0);
+	printf("--- a -- b ---\n");
 }

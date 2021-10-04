@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/10/03 12:48:37 by gsap             ###   ########.fr       */
+/*   Updated: 2021/10/04 17:39:35 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,16 @@ t_swap	ft_fusion_sort(t_swap stack, char **ls);
 t_swap	ft_random_index(t_swap stack, char **ls);
 int		ft_index(char *s, char **ls);
 
+//	ft_backtrack_sort.c
+t_swap	ft_find_following(char **ls, t_swap stack);
+t_swap	ft_find_biggest_follow(int *compt, t_swap stack, char **ls);
+t_swap	ft_send_on_b(int first, t_swap stack, int j, char **ls);
+
 //	ft_quick_sort.c
 t_swap	ft_quick_sort(t_swap stack, char **ls);
 char	**ft_create_dup_index(t_swap stack, char **ls);
+
+//	ft_display.c
+void	ft_display_stack(t_swap stack);
 
 #endif

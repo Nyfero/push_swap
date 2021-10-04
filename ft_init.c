@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/10/03 13:52:50 by gsap             ###   ########.fr       */
+/*   Updated: 2021/10/04 16:28:47 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_swap	ft_init(t_swap stack, int argc, char **argv)
 	while (++i < argc - 1)
 	{
 		tmp = ft_split(argv[i + 1], ' ');
+		if (!tmp)
+			ft_error_free(stack);
 		j = -1;
 		while (tmp[++j])
 			stack.a[h++] = ft_strdup(tmp[j]);
