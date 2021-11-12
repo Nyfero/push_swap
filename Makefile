@@ -70,7 +70,6 @@ fclean: clean
 	@ $(RM) $(NAME)
 	@ echo "$(RED)\n		*** Remove $(NAME) ***\n$(END)"
 
-
 re: fclean all
 
 .PHONY: all clean fclean re
