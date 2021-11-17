@@ -1,0 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
+/*   Updated: 2021/11/04 15:15:37 by gsap             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/ft_push_swap_bonus.h"
+
+t_swap	ft_sa(t_swap stack)
+{
+	char	*tmp;
+
+	if (ft_lstrlen(stack.a) <= 1)
+		return (stack);
+	tmp = stack.a[0];
+	stack.a[0] = stack.a[1];
+	stack.a[1] = tmp;
+	return (stack);
+}
+
+t_swap	ft_sb(t_swap stack)
+{
+	char	*tmp;
+
+	if (ft_lstrlen(stack.b) <= 1)
+		return (stack);
+	tmp = stack.b[0];
+	stack.b[0] = stack.b[1];
+	stack.b[1] = tmp;
+	return (stack);
+}
+
+t_swap	ft_ss(t_swap stack)
+{
+	char	*tmp;
+
+	if (ft_lstrlen(stack.a) <= 1 || ft_lstrlen(stack.b) <= 1)
+		return (stack);
+	tmp = stack.a[0];
+	stack.a[0] = stack.a[1];
+	stack.a[1] = tmp;
+	tmp = stack.b[0];
+	stack.b[0] = stack.b[1];
+	stack.b[1] = tmp;
+	return (stack);
+}
