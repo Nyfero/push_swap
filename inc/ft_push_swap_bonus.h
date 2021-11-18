@@ -6,12 +6,12 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/11/17 15:37:45 by gsap             ###   ########.fr       */
+/*   Updated: 2021/11/18 11:49:18 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PUSH_SWAP_H
-# define FT_PUSH_SWAP_H
+#ifndef FT_PUSH_SWAP_BONUS_H
+# define FT_PUSH_SWAP_BONUS_H
 
 # include <unistd.h>
 # include <stdio.h>
@@ -27,7 +27,7 @@ typedef struct s_pushswap
 
 //	ft_push_swap.c
 int		main(int argc, char **argv);
-void 	ft_read_output(t_swap stack);
+void	ft_read_output(t_swap stack);
 t_swap	ft_choose_action(char *str, t_swap stack);
 int		ft_check_sort(char **ls);
 
