@@ -6,7 +6,7 @@
 #    By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 14:07:19 by gsap              #+#    #+#              #
-#    Updated: 2021/11/17 11:24:12 by gsap             ###   ########.fr        #
+#    Updated: 2021/11/18 14:54:52 by gsap             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,12 +64,12 @@ bonus: $(BONUS)
 
 $(NAME): $(LIBFT) $(OBJS_PATH) $(OBJS)
 	@ echo "$(BLUE)\n		*** Make $(NAME) ***\n$(END)"
-	@ $(CC) $(FLAGS) $(OBJS_PATH)/*.o -o $(NAME) $(DIR)libft.a
+	@ $(CC) $(CFLAGS) $(OBJS_PATH)/*.o -o $(NAME) $(DIR)libft.a
 	@ echo "$(GREEN)\n		---$(NAME) created ---\n$(END)"
 
 $(BONUS): $(LIBFT) $(OBJS_BONUS_PATH) $(OBJS_BONUS)
 	@ echo "$(BLUE)\n		*** Make $(BONUS) ***\n$(END)"
-	@ $(CC) $(FLAGS) $(OBJS_BONUS_PATH)/*.o -o $(BONUS) $(DIR)libft.a
+	@ $(CC) $(CFLAGS) $(OBJS_BONUS_PATH)/*.o -o $(BONUS) $(DIR)libft.a
 	@ echo "$(GREEN)\n		---$(BONUS) created ---\n$(END)"
 
 $(LIBFT):
@@ -83,7 +83,7 @@ $(OBJS_BONUS_PATH):
 	@mkdir -p $(OBJS_BONUS_PATH)
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(INC)
-	@ $(CC) $(FLAGS) -I $(INC) -c $< -o $@
+	@ $(CC) $(CFLAGS) -I $(INC) -c $< -o $@
 
 $(OBJS_BONUS_PATH)%.o: $(SRCS_BONUS_PATH)%.c $(INC_BONUS)
 	@ $(CC) $(FLAGS) -I $(INC_BONUS) -c $< -o $@
