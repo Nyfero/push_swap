@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/11/04 15:15:18 by gsap             ###   ########.fr       */
+/*   Updated: 2021/11/23 10:30:01 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int	ft_find_size(char **ls)
 	return (-1);
 }
 
+// radix pour une tab de char of char sans restriction
 char	**ft_move_up(char **ls, int j)
 {
 	int		i;
@@ -122,6 +123,5 @@ char	**ft_move_up(char **ls, int j)
 		i++;
 	}
 	tmp[k] = 0;
-	ft_free_ls(ls);
 	return (tmp);
 }

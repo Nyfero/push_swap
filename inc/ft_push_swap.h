@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/11/04 15:17:45 by gsap             ###   ########.fr       */
+/*   Updated: 2021/11/23 12:37:54 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ typedef struct s_pushswap
 
 //	ft_push_swap.c
 int		main(int argc, char **argv);
+int		ft_check_space(char **argv);
 
 //	ft_error.c
 void	ft_error(void);
 void	ft_error_free(t_swap stack);
-void	ft_free_ls(char **ls);
 
 //	ft_init.c
 t_swap	ft_init(t_swap stack, int argc, char **argv);
