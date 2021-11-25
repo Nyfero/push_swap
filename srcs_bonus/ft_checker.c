@@ -6,7 +6,7 @@
 /*   By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:13:18 by gsap              #+#    #+#             */
-/*   Updated: 2021/11/18 11:48:34 by gsap             ###   ########.fr       */
+/*   Updated: 2021/11/25 15:04:15 by gsap             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,16 @@ void	ft_read_output(t_swap stack)
 
 	len_a = ft_lstrlen(stack.a);
 	tmp = get_next_line(0);
-	while ((ft_check_sort(stack.a) != 1 && ft_lstrlen(stack.a) != len_a)
-		|| tmp != NULL)
+	while (tmp != NULL)
 	{
 		stack = ft_choose_action(tmp, stack);
 		free(tmp);
-		if (ft_check_sort(stack.a) == 1 && ft_lstrlen(stack.a) == len_a)
-		{
-			write(1, "OK\n", 3);
-			ft_free_ls(stack.a);
-			ft_free_ls(stack.b);
-			return ;
-		}
 		tmp = get_next_line(0);
 	}
-	write(1, "KO\n", 3);
+	if (ft_check_sort(stack.a) == 1)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
 	free(tmp);
 	ft_free_ls(stack.a);
 	ft_free_ls(stack.b);
