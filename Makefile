@@ -6,7 +6,7 @@
 #    By: gsap <gsap@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/20 14:07:19 by gsap              #+#    #+#              #
-#    Updated: 2021/11/22 14:28:57 by gsap             ###   ########.fr        #
+#    Updated: 2021/11/29 15:34:15 by gsap             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRCS_PATH = srcs
 SRCS_BONUS_PATH = srcs_bonus
 
 SRCS = $(addprefix $(SRCS_PATH)/,ft_push_swap.c ft_error.c ft_init.c ft_push.c \
-	ft_reverse.c ft_rotate.c ft_swap.c ft_sort.c ft_sort_utils0.c \
+	ft_reverse.c ft_rotate.c ft_swap.c ft_sort.c ft_sort_utils0.c ft_sort_chunk.c \
 	ft_small_sort.c ft_radix_sort.c ft_radix_sort_utils.c ft_display.c)
 
 SRCS_BONUS = $(addprefix $(SRCS_BONUS_PATH)/, ft_checker.c ft_display.c \
